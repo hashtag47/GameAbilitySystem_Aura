@@ -28,4 +28,8 @@
          9. Set Callback function with AddMovementInput()
 
     - GameMode Setup
-  
+          1. Inherited from GameModeBase
+          2. Created BP_GameMode and Set Current Game Mode to it
+          3. Set Default Pawn Character as the Main Character
+          4. Set the UCameraComponent and USpringArmComponent to the Character
+
