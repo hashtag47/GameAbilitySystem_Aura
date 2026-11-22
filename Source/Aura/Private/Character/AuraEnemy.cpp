@@ -4,9 +4,11 @@
 #include "Character/AuraEnemy.h"
 #include "DrawDebugHelpers.h"
 #include "Engine/Engine.h"
+#include "Aura/Aura.h"
 
-AAuraEnemy::AAuraEnemy() {
-	//PrimaryActorTick.bCanEverTick = true;
+AAuraEnemy::AAuraEnemy() 
+{
+	GetMesh()->SetCollisionResponseToChannel(ECC_Visibility, ECR_Block);
 }
 
 void AAuraEnemy::HighlightActor()
@@ -15,6 +17,12 @@ void AAuraEnemy::HighlightActor()
 	//if (GEngine) {
 	//	GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Blue, TEXT("Enemy highlighted!"));
 	//}
+	GetMesh()->SetRenderCustomDepth(true);
+	GetMesh()->SetCustomDepthStencilValue(CUSTOM_DEPTH_RED);
+
+	Weapon->SetRenderCustomDepth(true);
+	Weapon->SetCustomDepthStencilValue(CUSTOM_DEPTH_RED);
+
 }
 
 void AAuraEnemy::UnHighlightActor()
@@ -23,14 +31,17 @@ void AAuraEnemy::UnHighlightActor()
 	//if (GEngine) {
 	//	GEngine->AddOnScreenDebugMessage(-1, 2.f, FColor::Yellow, TEXT("Enemy unhighlighted!"));
 	//}
+	GetMesh()->SetRenderCustomDepth(false);
+
+	Weapon->SetRenderCustomDepth(false);
 }
 
-void AAuraEnemy::Tick(float DeltaTime)
-{
+//void AAuraEnemy::Tick(float DeltaTime)
+//{
 	//Super::Tick(DeltaTime);
 
 	//if (bHighlighted) {
 	//	DrawDebugSphere(GetWorld(), GetActorLocation(), 32.f, 12, FColor::Red, false, 2.f);
 	//}
-}
+//}
 
