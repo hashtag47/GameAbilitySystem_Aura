@@ -1,7 +1,7 @@
 **This Project followed by Stephen Ulibarri of his Patreon Courses**
 
 - GAS Implementation Pipeline
-**Character Build :** 
+**Section 1 :** 
   - CharacterBaseClass (Abstract)
         1. Removed InputComponent and BeginPlay
         2.  Added TObjectPtr to USkeletalMeshComponent to the Weapon
@@ -50,3 +50,24 @@
           6. Set HighlightActor() and UnhighlightActor() in Enemy class
           7. GetMesh() -> SetRenderCustomDepth() / GetMesh() -> SetCustomDepthStencilValue()
           8. Do remember our design pattern which CharacterBase has USkeletalMeshComponent for Weapon
+
+**Section 2 :**
+     - Gameplay Ability System in General
+          1. Ability System Component
+          2. Attribute Set
+          3. Gameplay Ability
+          4. Ability Task
+          5. Gameplay Effect
+          6. Gameplay Cue
+          7. Gameplay Tag
+          8. For this project, Enemy Character will be directly link to Ability System Component and Attribute Set
+          9. For this project, Player Controlled Character will use Player State as the coordinator
+          10. Player State / Ability System Component / Attribute Set
+     
+      - Player State Class
+          1. Create C++ Class for Player State Class
+          2. Set NetUpdateFrequency to 100.f, Lyra and Fornite follows this
+          3. Create BP_PlayerState and set Player State from GameMode to BP_PlayerState
+      
+      - 
+            
