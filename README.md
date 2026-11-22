@@ -1,4 +1,5 @@
 **This Project followed by Stephen Ulibarri of his Patreon Courses**
+I Only Used Development Configuration Now Without Debug Mode of UE
 
 - GAS Implementation Pipeline
 **Section 1 :** 
@@ -42,7 +43,7 @@
           6. Enemy Actors implemented from EnemyInterface (Abstract in default)
      
      - Post-Process Highlight
-          1. Create BP_EnemyBase in Character folder and set BP_EnemyX Class Setting inherited from BP_EnemyBase
+           1. Create BP_EnemyBase in Character folder and set BP_EnemyX Class Setting inherited from BP_EnemyBase
           2. Add Post Process Volume into the Scene and search for infinite to Set the infinite extended bounds
           3. Find custom depth setting in Project Settings
           4. Check Custom Depth-Stencil Pass with Enabled with Stencil
@@ -52,7 +53,7 @@
           8. Do remember our design pattern which CharacterBase has USkeletalMeshComponent for Weapon
 
 **Section 2 :**
-     - Gameplay Ability System in General
+-  Gameplay Ability System in General
           1. Ability System Component
           2. Attribute Set
           3. Gameplay Ability
@@ -63,11 +64,15 @@
           8. For this project, Enemy Character will be directly link to Ability System Component and Attribute Set
           9. For this project, Player Controlled Character will use Player State as the coordinator
           10. Player State / Ability System Component / Attribute Set
-     
-      - Player State Class
+
+- Player State Class
           1. Create C++ Class for Player State Class
           2. Set NetUpdateFrequency to 100.f, Lyra and Fornite follows this
           3. Create BP_PlayerState and set Player State from GameMode to BP_PlayerState
       
-      - 
-            
+  - Ability System Component and Attribute Set
+          1. ASC is the plug-in in Unreal Engine, search for Gameplay Ability
+          2. Create C++ Class Inherited from AbilitySystemComponent
+          3. Create C++ Class Inherited from AttributeSet
+          4. PrivateDependencyModuleNames.AddRange(new string[] { "GameplayAbilities", "GameplayTags", "GameplayTasks" });       
+          5. 
