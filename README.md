@@ -75,4 +75,15 @@ I Only Used Development Configuration Now Without Debug Mode of UE
           2. Create C++ Class Inherited from AbilitySystemComponent
           3. Create C++ Class Inherited from AttributeSet
           4. PrivateDependencyModuleNames.AddRange(new string[] { "GameplayAbilities", "GameplayTags", "GameplayTasks" });       
-          5. 
+
+- GAS in Multiplayer
+          1. Server ------ Client
+          2. Dedicated Server (No human player / No rendering to a screen)
+          3. Listen Server (Is a human player / Host has the advantage - no Lag)
+          4. Server is the Authority ("Correct" version of the game, do "important" things on the server)
+          5. Game Mode only exists on Server
+          6. Controllers exist on both Server and Clients, but PC_x could only exists on itself
+          7. Player State for each player all exists on the Server and also on the Clients
+          8. HUD and Widgets only exists on the Clients, each client only has own HUD and widgets
+          9. Replication only works one way from Server to Client with replicated variables
+          10. Remote procedure calls
