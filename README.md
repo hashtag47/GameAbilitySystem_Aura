@@ -33,3 +33,20 @@
           3. Set Default Pawn Character as the Main Character
           4. Set the UCameraComponent and USpringArmComponent to the Character
 
+    - Enemy Interface
+          1. CursorTrace created in PlayerController
+          2. CursorHit returns FHitResult
+          3. Interactive GetHitResultUnderCursor(ECC_Visibility, false, CursorHit)
+          4. Created EnemyInterface in Interaction Folder
+          5. When Cursor Interactive with the Enemy Actors, applies Highlight and UnHighlight
+          6. Enemy Actors implemented from EnemyInterface (Abstract in default)
+     
+     - Post-Process Highlight
+          1. Create BP_EnemyBase in Character folder and set BP_EnemyX Class Setting inherited from BP_EnemyBase
+          2. Add Post Process Volume into the Scene and search for infinite to Set the infinite extended bounds
+          3. Find custom depth setting in Project Settings
+          4. Check Custom Depth-Stencil Pass with Enabled with Stencil
+          5. Select Post Process Volumn object and add PP_Effect into the Post Process Materials array
+          6. Set HighlightActor() and UnhighlightActor() in Enemy class
+          7. GetMesh() -> SetRenderCustomDepth() / GetMesh() -> SetCustomDepthStencilValue()
+          8. Do remember our design pattern which CharacterBase has USkeletalMeshComponent for Weapon
