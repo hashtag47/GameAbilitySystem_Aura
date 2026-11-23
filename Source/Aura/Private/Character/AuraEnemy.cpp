@@ -19,6 +19,14 @@ AAuraEnemy::AAuraEnemy()
 	AttributeSet = CreateDefaultSubobject<UAttributeSet>("AttributeSet");
 }
 
+void AAuraEnemy::BeginPlay() {
+	Super::BeginPlay();
+
+	check(AbilitySystemComponent);
+
+	AbilitySystemComponent->InitAbilityActorInfo(this, this);
+}
+
 void AAuraEnemy::HighlightActor()
 {
 	//bHighlighted = true;
