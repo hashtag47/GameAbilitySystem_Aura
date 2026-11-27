@@ -4,7 +4,7 @@
 #include "Player/AuraPlayerController.h"
 #include "EnhancedInputSubsystems.h"
 #include "EnhancedInputComponent.h"
-#include "../../Public/Interaction/EnemyInterface.h"
+#include "Interaction/EnemyInterface.h"
 
 AAuraPlayerController::AAuraPlayerController()
 {
@@ -25,9 +25,13 @@ void AAuraPlayerController::BeginPlay()
 
 	// Bind EnhancedInput to the Player Controller
 	UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(GetLocalPlayer());
-	check(Subsystem);
-	Subsystem->AddMappingContext(AuraContext, 0);
+	// Here actually we should use if statement to check, because for the local host, this should be valid, as for others it should be no
+	// Change it to if statement could make sure our multiplayer mode is correct
 
+	if (Subsystem) {
+		Subsystem->AddMappingContext(AuraContext, 0);
+	};
+	
 	// Cursor settings
 	bShowMouseCursor = true;
 	DefaultMouseCursor = EMouseCursor::Default;
